@@ -45,6 +45,8 @@ def compute_subtotal(unit_price: float, qty: int) -> float:
 
 # 4
 def booking_fee(qty: int) -> float:
+    if qty <= 0:
+        raise ValueError("qty must be positive")
     return _round(BOOKING_FEE_PER_TICKET * qty)
 
 # 5

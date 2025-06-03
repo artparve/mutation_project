@@ -1,14 +1,14 @@
 
-PYTHON ?= python3
+PYTHON ?= python
 PIP ?= $(PYTHON) -m pip
 
-.PHONY: install test mutate mutate_fast htmlcov results clean
+.PHONY: install test mutate mutate_fast htmlcov results clean report mutation_score
 
 install:
 	$(PIP) install -r requirements.txt
 
 test:
-	pytest -q
+	PYTHONPATH=. pytest -q
 
 mutate:
 	mutmut run
@@ -17,10 +17,16 @@ mutate_fast:
 	mutmut run --since $(shell git merge-base main HEAD)
 
 htmlcov:
-	pytest --cov=billing --cov-report=html
+	PYTHONPATH=. pytest --cov=billing --cov-report=html
 
 results:
 	mutmut results
 
+report:
+	mutmut run --simple-output | tee mutmut.log
+
 clean:
 	rm -rf .mutmut_cache htmlcov .coverage
+
+mutation_score:
+	./calculate_mutation_score.sh

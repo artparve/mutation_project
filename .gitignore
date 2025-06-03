@@ -1,0 +1,7 @@
+.venv
+.pytest_cache
+mutmut.log
+
+.env
+__pycache__
+.mutmut-cache

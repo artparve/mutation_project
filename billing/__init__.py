@@ -4,6 +4,7 @@ from importlib import metadata as _metadata
 from .calculator import (
     price_with_tax, apply_coupon, compute_total, compute_subtotal,
     booking_fee, convert_currency, loyalty_points_earned, compute_bulk_total,
+    _round
 )
 
 __all__ = [
