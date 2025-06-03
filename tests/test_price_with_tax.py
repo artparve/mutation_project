@@ -29,9 +29,7 @@ class TestPriceWithTax:
         with pytest.raises(ValueError) as exc_info:
             price_with_tax(negative_net)
         
-        assert "net must be non‑negative" in str(exc_info.value), (
-            "Неверное сообщение об ошибке"
-        )
+        assert str(exc_info.value) == "net must be non‑negative"
 
     def test_precision_rounding(self):
         """Проверка правильного округления"""

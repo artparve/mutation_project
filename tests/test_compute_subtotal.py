@@ -24,7 +24,7 @@ class TestComputeSubtotal:
         with pytest.raises(ValueError) as exc_info:
             compute_subtotal(100.0, invalid_qty)
         
-        assert "qty must be positive" in str(exc_info.value)
+        assert "qty must be positive" == str(exc_info.value)
 
     def test_precision_rounding(self):
         """Проверка правил округления"""

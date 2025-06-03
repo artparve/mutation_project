@@ -74,6 +74,8 @@ def convert_currency(amount_eur: float, to: str) -> float:
     rate = SUPPORTED_CURRENCIES.get(to.upper())
     if rate is None:
         raise KeyError(f"Unsupported currency {to}")
+    if amount_eur < 0:
+        raise ValueError("amount must be non-negative")
     return _round(amount_eur / rate)
 
 # 9
@@ -130,6 +132,10 @@ def cap_price(price: float, cap: float) -> float:
 
 # 19
 def round_money(value: float, decimals: int = 2) -> float:
+    if not isinstance(decimals, int):
+        raise TypeError("decimals must be int")
+    if not isinstance(value, float):
+        raise TypeError("decimals must be int")
     return float(Decimal(str(value)).quantize(Decimal((0, (1,), -decimals)), rounding=ROUND_HALF_UP))
 
 # 20

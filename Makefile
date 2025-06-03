@@ -24,6 +24,7 @@ results:
 
 report:
 	mutmut run --simple-output | tee mutmut.log
+	mutmut html
 
 clean:
 	rm -rf .mutmut_cache htmlcov .coverage

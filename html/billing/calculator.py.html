@@ -1,140 +1,4 @@
-<html><body><h1>billing/calculator.py</h1>Killed 17 out of 107 mutants<h2>Survived</h2>Survived mutation testing. These mutants show holes in your test suite.<h3>Mutant 3</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -8,7 +8,7 @@
- from typing import List, Tuple, Dict
- 
- TAX_RATE: float = 0.21
--BOOKING_FEE_PER_TICKET: float = 0.50
-+BOOKING_FEE_PER_TICKET: float = 1.5
- LOYALTY_POINT_RATE: float = 0.02
- 
- SUPPORTED_CURRENCIES: Dict[str, float] = {
-</pre><h3>Mutant 4</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -8,7 +8,7 @@
- from typing import List, Tuple, Dict
- 
- TAX_RATE: float = 0.21
--BOOKING_FEE_PER_TICKET: float = 0.50
-+BOOKING_FEE_PER_TICKET: float = None
- LOYALTY_POINT_RATE: float = 0.02
- 
- SUPPORTED_CURRENCIES: Dict[str, float] = {
-</pre><h3>Mutant 5</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -9,7 +9,7 @@
- 
- TAX_RATE: float = 0.21
- BOOKING_FEE_PER_TICKET: float = 0.50
--LOYALTY_POINT_RATE: float = 0.02
-+LOYALTY_POINT_RATE: float = 1.02
- 
- SUPPORTED_CURRENCIES: Dict[str, float] = {
-     "EUR": 1.0,
-</pre><h3>Mutant 6</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -9,7 +9,7 @@
- 
- TAX_RATE: float = 0.21
- BOOKING_FEE_PER_TICKET: float = 0.50
--LOYALTY_POINT_RATE: float = 0.02
-+LOYALTY_POINT_RATE: float = None
- 
- SUPPORTED_CURRENCIES: Dict[str, float] = {
-     "EUR": 1.0,
-</pre><h3>Mutant 7</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -12,7 +12,7 @@
- LOYALTY_POINT_RATE: float = 0.02
- 
- SUPPORTED_CURRENCIES: Dict[str, float] = {
--    "EUR": 1.0,
-+    "XXEURXX": 1.0,
-     "USD": 0.92,
-     "GBP": 1.15,
- }
-</pre><h3>Mutant 8</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -12,7 +12,7 @@
- LOYALTY_POINT_RATE: float = 0.02
- 
- SUPPORTED_CURRENCIES: Dict[str, float] = {
--    "EUR": 1.0,
-+    "EUR": 2.0,
-     "USD": 0.92,
-     "GBP": 1.15,
- }
-</pre><h3>Mutant 9</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -13,7 +13,7 @@
- 
- SUPPORTED_CURRENCIES: Dict[str, float] = {
-     "EUR": 1.0,
--    "USD": 0.92,
-+    "XXUSDXX": 0.92,
-     "GBP": 1.15,
- }
- 
-</pre><h3>Mutant 10</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -13,7 +13,7 @@
- 
- SUPPORTED_CURRENCIES: Dict[str, float] = {
-     "EUR": 1.0,
--    "USD": 0.92,
-+    "USD": 1.92,
-     "GBP": 1.15,
- }
- 
-</pre><h3>Mutant 11</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -14,7 +14,7 @@
- SUPPORTED_CURRENCIES: Dict[str, float] = {
-     "EUR": 1.0,
-     "USD": 0.92,
--    "GBP": 1.15,
-+    "XXGBPXX": 1.15,
- }
- 
- COUPON_CODES: Dict[str, float] = {
-</pre><h3>Mutant 12</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -14,7 +14,7 @@
- SUPPORTED_CURRENCIES: Dict[str, float] = {
-     "EUR": 1.0,
-     "USD": 0.92,
--    "GBP": 1.15,
-+    "GBP": 2.15,
- }
- 
- COUPON_CODES: Dict[str, float] = {
-</pre><h3>Mutant 13</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -11,11 +11,7 @@
- BOOKING_FEE_PER_TICKET: float = 0.50
- LOYALTY_POINT_RATE: float = 0.02
- 
--SUPPORTED_CURRENCIES: Dict[str, float] = {
--    "EUR": 1.0,
--    "USD": 0.92,
--    "GBP": 1.15,
--}
-+SUPPORTED_CURRENCIES: Dict[str, float] = None
- 
- COUPON_CODES: Dict[str, float] = {
-     "SPORT10": 0.10,
-</pre><h3>Mutant 24</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -29,7 +29,7 @@
- # 1
- def price_with_tax(net: float) -> float:
-     if net < 0:
--        raise ValueError("net must be non‑negative")
-+        raise ValueError("XXnet must be non‑negativeXX")
-     return _round(net * (1 + TAX_RATE))
- 
- # 2
-</pre><h3>Mutant 28</h3><pre>--- billing/calculator.py
+<html><body><h1>billing/calculator.py</h1>Killed 100 out of 116 mutants<h2>Survived</h2>Survived mutation testing. These mutants show holes in your test suite.<h3>Mutant 28</h3><pre>--- billing/calculator.py
 +++ billing/calculator.py
 @@ -34,7 +34,7 @@
  
@@ -145,438 +9,9 @@
      return _round(gross * (1 - disc))
  
  # 3
-</pre><h3>Mutant 36</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -40,7 +40,7 @@
- # 3
- def compute_subtotal(unit_price: float, qty: int) -> float:
-     if qty <= 0:
--        raise ValueError("qty must be positive")
-+        raise ValueError("XXqty must be positiveXX")
-     return _round(unit_price * qty)
- 
- # 4
-</pre><h3>Mutant 38</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -45,7 +45,7 @@
- 
- # 4
- def booking_fee(qty: int) -> float:
--    return _round(BOOKING_FEE_PER_TICKET * qty)
-+    return _round(BOOKING_FEE_PER_TICKET / qty)
- 
- # 5
- def compute_total(unit_price: float, qty: int, coupon: str | None = None) -> float:
-</pre><h3>Mutant 39</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -49,7 +49,7 @@
- 
- # 5
- def compute_total(unit_price: float, qty: int, coupon: str | None = None) -> float:
--    subtotal = compute_subtotal(unit_price, qty)
-+    subtotal = None
-     gross = price_with_tax(subtotal + booking_fee(qty))
-     return apply_coupon(gross, coupon)
- 
-</pre><h3>Mutant 40</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -50,7 +50,7 @@
- # 5
- def compute_total(unit_price: float, qty: int, coupon: str | None = None) -> float:
-     subtotal = compute_subtotal(unit_price, qty)
--    gross = price_with_tax(subtotal + booking_fee(qty))
-+    gross = price_with_tax(subtotal - booking_fee(qty))
-     return apply_coupon(gross, coupon)
- 
- # 6
-</pre><h3>Mutant 41</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -50,7 +50,7 @@
- # 5
- def compute_total(unit_price: float, qty: int, coupon: str | None = None) -> float:
-     subtotal = compute_subtotal(unit_price, qty)
--    gross = price_with_tax(subtotal + booking_fee(qty))
-+    gross = None
-     return apply_coupon(gross, coupon)
- 
- # 6
-</pre><h3>Mutant 42</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -55,7 +55,7 @@
- 
- # 6
- def validate_coupon(code: str) -> bool:
--    return code.upper() in COUPON_CODES
-+    return code.upper() not in COUPON_CODES
- 
- # 7
- def split_payment(total: float, parts: int) -> List[float]:
-</pre><h3>Mutant 43</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -59,7 +59,7 @@
- 
- # 7
- def split_payment(total: float, parts: int) -> List[float]:
--    if parts <= 0:
-+    if parts < 0:
-         raise ValueError("parts must be > 0")
-     part = _round(total / parts)
-     amounts = [part] * parts
-</pre><h3>Mutant 44</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -59,7 +59,7 @@
- 
- # 7
- def split_payment(total: float, parts: int) -> List[float]:
--    if parts <= 0:
-+    if parts <= 1:
-         raise ValueError("parts must be > 0")
-     part = _round(total / parts)
-     amounts = [part] * parts
-</pre><h3>Mutant 45</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -60,7 +60,7 @@
- # 7
- def split_payment(total: float, parts: int) -> List[float]:
-     if parts <= 0:
--        raise ValueError("parts must be > 0")
-+        raise ValueError("XXparts must be > 0XX")
-     part = _round(total / parts)
-     amounts = [part] * parts
-     diff = _round(total - sum(amounts))
-</pre><h3>Mutant 46</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -61,7 +61,7 @@
- def split_payment(total: float, parts: int) -> List[float]:
-     if parts <= 0:
-         raise ValueError("parts must be > 0")
--    part = _round(total / parts)
-+    part = _round(total * parts)
-     amounts = [part] * parts
-     diff = _round(total - sum(amounts))
-     amounts[-1] = _round(amounts[-1] + diff)
-</pre><h3>Mutant 47</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -61,7 +61,7 @@
- def split_payment(total: float, parts: int) -> List[float]:
-     if parts <= 0:
-         raise ValueError("parts must be > 0")
--    part = _round(total / parts)
-+    part = None
-     amounts = [part] * parts
-     diff = _round(total - sum(amounts))
-     amounts[-1] = _round(amounts[-1] + diff)
-</pre><h3>Mutant 48</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -62,7 +62,7 @@
-     if parts <= 0:
-         raise ValueError("parts must be > 0")
-     part = _round(total / parts)
--    amounts = [part] * parts
-+    amounts = [part] / parts
-     diff = _round(total - sum(amounts))
-     amounts[-1] = _round(amounts[-1] + diff)
-     return amounts
-</pre><h3>Mutant 49</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -62,7 +62,7 @@
-     if parts <= 0:
-         raise ValueError("parts must be > 0")
-     part = _round(total / parts)
--    amounts = [part] * parts
-+    amounts = None
-     diff = _round(total - sum(amounts))
-     amounts[-1] = _round(amounts[-1] + diff)
-     return amounts
-</pre><h3>Mutant 50</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -63,7 +63,7 @@
-         raise ValueError("parts must be > 0")
-     part = _round(total / parts)
-     amounts = [part] * parts
--    diff = _round(total - sum(amounts))
-+    diff = _round(total + sum(amounts))
-     amounts[-1] = _round(amounts[-1] + diff)
-     return amounts
- 
-</pre><h3>Mutant 51</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -63,7 +63,7 @@
-         raise ValueError("parts must be > 0")
-     part = _round(total / parts)
-     amounts = [part] * parts
--    diff = _round(total - sum(amounts))
-+    diff = None
-     amounts[-1] = _round(amounts[-1] + diff)
-     return amounts
- 
-</pre><h3>Mutant 52</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -64,7 +64,7 @@
-     part = _round(total / parts)
-     amounts = [part] * parts
-     diff = _round(total - sum(amounts))
--    amounts[-1] = _round(amounts[-1] + diff)
-+    amounts[+1] = _round(amounts[-1] + diff)
-     return amounts
- 
- # 8
-</pre><h3>Mutant 53</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -64,7 +64,7 @@
-     part = _round(total / parts)
-     amounts = [part] * parts
-     diff = _round(total - sum(amounts))
--    amounts[-1] = _round(amounts[-1] + diff)
-+    amounts[-2] = _round(amounts[-1] + diff)
-     return amounts
- 
- # 8
-</pre><h3>Mutant 54</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -64,7 +64,7 @@
-     part = _round(total / parts)
-     amounts = [part] * parts
-     diff = _round(total - sum(amounts))
--    amounts[-1] = _round(amounts[-1] + diff)
-+    amounts[-1] = _round(amounts[+1] + diff)
-     return amounts
- 
- # 8
-</pre><h3>Mutant 55</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -64,7 +64,7 @@
-     part = _round(total / parts)
-     amounts = [part] * parts
-     diff = _round(total - sum(amounts))
--    amounts[-1] = _round(amounts[-1] + diff)
-+    amounts[-1] = _round(amounts[-2] + diff)
-     return amounts
- 
- # 8
-</pre><h3>Mutant 56</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -64,7 +64,7 @@
-     part = _round(total / parts)
-     amounts = [part] * parts
-     diff = _round(total - sum(amounts))
--    amounts[-1] = _round(amounts[-1] + diff)
-+    amounts[-1] = _round(amounts[-1] - diff)
-     return amounts
- 
- # 8
-</pre><h3>Mutant 57</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -64,7 +64,7 @@
-     part = _round(total / parts)
-     amounts = [part] * parts
-     diff = _round(total - sum(amounts))
--    amounts[-1] = _round(amounts[-1] + diff)
-+    amounts[-1] = None
-     return amounts
- 
- # 8
-</pre><h3>Mutant 58</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -69,7 +69,7 @@
- 
- # 8
- def convert_currency(amount_eur: float, to: str) -> float:
--    rate = SUPPORTED_CURRENCIES.get(to.upper())
-+    rate = None
-     if rate is None:
-         raise KeyError(f"Unsupported currency {to}")
-     return _round(amount_eur / rate)
-</pre><h3>Mutant 59</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -70,7 +70,7 @@
- # 8
- def convert_currency(amount_eur: float, to: str) -> float:
-     rate = SUPPORTED_CURRENCIES.get(to.upper())
--    if rate is None:
-+    if rate is not None:
-         raise KeyError(f"Unsupported currency {to}")
-     return _round(amount_eur / rate)
- 
-</pre><h3>Mutant 60</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -71,7 +71,7 @@
- def convert_currency(amount_eur: float, to: str) -> float:
-     rate = SUPPORTED_CURRENCIES.get(to.upper())
-     if rate is None:
--        raise KeyError(f"Unsupported currency {to}")
-+        raise KeyError(f"XXUnsupported currency {to}XX")
-     return _round(amount_eur / rate)
- 
- # 9
-</pre><h3>Mutant 61</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -72,7 +72,7 @@
-     rate = SUPPORTED_CURRENCIES.get(to.upper())
-     if rate is None:
-         raise KeyError(f"Unsupported currency {to}")
--    return _round(amount_eur / rate)
-+    return _round(amount_eur * rate)
- 
- # 9
- def parse_iso_date(date_str: str) -> datetime:
-</pre><h3>Mutant 62</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -80,7 +80,7 @@
- 
- # 10
- def compute_refund(total_paid: float, percentage: float) -> float:
--    if not 0 <= percentage <= 1:
-+    if  0 <= percentage <= 1:
-         raise ValueError("percentage 0..1")
-     return _round(total_paid * percentage)
- 
-</pre><h3>Mutant 63</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -80,7 +80,7 @@
- 
- # 10
- def compute_refund(total_paid: float, percentage: float) -> float:
--    if not 0 <= percentage <= 1:
-+    if not 1 <= percentage <= 1:
-         raise ValueError("percentage 0..1")
-     return _round(total_paid * percentage)
- 
-</pre><h3>Mutant 64</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -80,7 +80,7 @@
- 
- # 10
- def compute_refund(total_paid: float, percentage: float) -> float:
--    if not 0 <= percentage <= 1:
-+    if not 0 < percentage <= 1:
-         raise ValueError("percentage 0..1")
-     return _round(total_paid * percentage)
- 
-</pre><h3>Mutant 65</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -80,7 +80,7 @@
- 
- # 10
- def compute_refund(total_paid: float, percentage: float) -> float:
--    if not 0 <= percentage <= 1:
-+    if not 0 <= percentage < 1:
-         raise ValueError("percentage 0..1")
-     return _round(total_paid * percentage)
- 
-</pre><h3>Mutant 66</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -80,7 +80,7 @@
- 
- # 10
- def compute_refund(total_paid: float, percentage: float) -> float:
--    if not 0 <= percentage <= 1:
-+    if not 0 <= percentage <= 2:
-         raise ValueError("percentage 0..1")
-     return _round(total_paid * percentage)
- 
-</pre><h3>Mutant 67</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -81,7 +81,7 @@
- # 10
- def compute_refund(total_paid: float, percentage: float) -> float:
-     if not 0 <= percentage <= 1:
--        raise ValueError("percentage 0..1")
-+        raise ValueError("XXpercentage 0..1XX")
-     return _round(total_paid * percentage)
- 
- # 11
-</pre><h3>Mutant 68</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -82,7 +82,7 @@
- def compute_refund(total_paid: float, percentage: float) -> float:
-     if not 0 <= percentage <= 1:
-         raise ValueError("percentage 0..1")
--    return _round(total_paid * percentage)
-+    return _round(total_paid / percentage)
- 
- # 11
- def bulk_discount(qty: int) -> float:
-</pre><h3>Mutant 69</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -86,7 +86,7 @@
- 
- # 11
- def bulk_discount(qty: int) -> float:
--    if qty >= 20:
-+    if qty > 20:
-         return 0.15
-     elif qty >= 10:
-         return 0.08
-</pre><h3>Mutant 70</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -86,7 +86,7 @@
- 
- # 11
- def bulk_discount(qty: int) -> float:
--    if qty >= 20:
-+    if qty >= 21:
-         return 0.15
-     elif qty >= 10:
-         return 0.08
-</pre><h3>Mutant 71</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -87,7 +87,7 @@
- # 11
- def bulk_discount(qty: int) -> float:
-     if qty >= 20:
--        return 0.15
-+        return 1.15
-     elif qty >= 10:
-         return 0.08
-     return 0.0
-</pre><h3>Mutant 72</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -88,7 +88,7 @@
- def bulk_discount(qty: int) -> float:
-     if qty >= 20:
-         return 0.15
--    elif qty >= 10:
-+    elif qty > 10:
-         return 0.08
-     return 0.0
- 
-</pre><h3>Mutant 73</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -88,7 +88,7 @@
- def bulk_discount(qty: int) -> float:
-     if qty >= 20:
-         return 0.15
--    elif qty >= 10:
-+    elif qty >= 11:
-         return 0.08
-     return 0.0
- 
-</pre><h3>Mutant 74</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -89,7 +89,7 @@
-     if qty >= 20:
-         return 0.15
-     elif qty >= 10:
--        return 0.08
-+        return 1.08
-     return 0.0
- 
- # 12
-</pre><h3>Mutant 75</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -90,7 +90,7 @@
-         return 0.15
-     elif qty >= 10:
-         return 0.08
--    return 0.0
-+    return 1.0
- 
- # 12
- def compute_bulk_total(unit_price: float, qty: int) -> float:
 </pre><h3>Mutant 76</h3><pre>--- billing/calculator.py
 +++ billing/calculator.py
-@@ -94,7 +94,7 @@
+@@ -98,7 +98,7 @@
  
  # 12
  def compute_bulk_total(unit_price: float, qty: int) -> float:
@@ -587,7 +22,7 @@
      return price_with_tax(subtotal)
 </pre><h3>Mutant 77</h3><pre>--- billing/calculator.py
 +++ billing/calculator.py
-@@ -95,7 +95,7 @@
+@@ -99,7 +99,7 @@
  # 12
  def compute_bulk_total(unit_price: float, qty: int) -> float:
      subtotal = compute_subtotal(unit_price, qty)
@@ -598,7 +33,7 @@
  
 </pre><h3>Mutant 78</h3><pre>--- billing/calculator.py
 +++ billing/calculator.py
-@@ -96,7 +96,7 @@
+@@ -100,7 +100,7 @@
  def compute_bulk_total(unit_price: float, qty: int) -> float:
      subtotal = compute_subtotal(unit_price, qty)
      discount = bulk_discount(qty)
@@ -609,7 +44,7 @@
  # 13
 </pre><h3>Mutant 79</h3><pre>--- billing/calculator.py
 +++ billing/calculator.py
-@@ -96,7 +96,7 @@
+@@ -100,7 +100,7 @@
  def compute_bulk_total(unit_price: float, qty: int) -> float:
      subtotal = compute_subtotal(unit_price, qty)
      discount = bulk_discount(qty)
@@ -620,7 +55,7 @@
  # 13
 </pre><h3>Mutant 80</h3><pre>--- billing/calculator.py
 +++ billing/calculator.py
-@@ -96,7 +96,7 @@
+@@ -100,7 +100,7 @@
  def compute_bulk_total(unit_price: float, qty: int) -> float:
      subtotal = compute_subtotal(unit_price, qty)
      discount = bulk_discount(qty)
@@ -631,7 +66,7 @@
  # 13
 </pre><h3>Mutant 81</h3><pre>--- billing/calculator.py
 +++ billing/calculator.py
-@@ -96,7 +96,7 @@
+@@ -100,7 +100,7 @@
  def compute_bulk_total(unit_price: float, qty: int) -> float:
      subtotal = compute_subtotal(unit_price, qty)
      discount = bulk_discount(qty)
@@ -640,243 +75,12 @@
      return price_with_tax(subtotal)
  
  # 13
-</pre><h3>Mutant 82</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -101,7 +101,7 @@
- 
- # 13
- def tax_breakdown(net: float) -> Tuple[float, float]:
--    tax = _round(net * TAX_RATE)
-+    tax = _round(net / TAX_RATE)
-     return net, tax
- 
- # 14
-</pre><h3>Mutant 83</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -101,7 +101,7 @@
- 
- # 13
- def tax_breakdown(net: float) -> Tuple[float, float]:
--    tax = _round(net * TAX_RATE)
-+    tax = None
-     return net, tax
- 
- # 14
-</pre><h3>Mutant 84</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -106,7 +106,7 @@
- 
- # 14
- def validate_tax_number(tax_num: str) -> bool:
--    return tax_num.startswith("LV") and len(tax_num) == 12
-+    return tax_num.startswith("XXLVXX") and len(tax_num) == 12
- 
- # 15
- def apply_dynamic_tax(net: float, country: str) -> float:
-</pre><h3>Mutant 85</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -106,7 +106,7 @@
- 
- # 14
- def validate_tax_number(tax_num: str) -> bool:
--    return tax_num.startswith("LV") and len(tax_num) == 12
-+    return tax_num.startswith("LV") and len(tax_num) != 12
- 
- # 15
- def apply_dynamic_tax(net: float, country: str) -> float:
-</pre><h3>Mutant 86</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -106,7 +106,7 @@
- 
- # 14
- def validate_tax_number(tax_num: str) -> bool:
--    return tax_num.startswith("LV") and len(tax_num) == 12
-+    return tax_num.startswith("LV") and len(tax_num) == 13
- 
- # 15
- def apply_dynamic_tax(net: float, country: str) -> float:
-</pre><h3>Mutant 87</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -106,7 +106,7 @@
- 
- # 14
- def validate_tax_number(tax_num: str) -> bool:
--    return tax_num.startswith("LV") and len(tax_num) == 12
-+    return tax_num.startswith("LV") or len(tax_num) == 12
- 
- # 15
- def apply_dynamic_tax(net: float, country: str) -> float:
-</pre><h3>Mutant 88</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -110,7 +110,7 @@
- 
- # 15
- def apply_dynamic_tax(net: float, country: str) -> float:
--    rate = 0.21 if country.upper() == "LV" else 0.20
-+    rate = 1.21 if country.upper() == "LV" else 0.20
-     return _round(net * (1 + rate))
- 
- # 16
-</pre><h3>Mutant 89</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -110,7 +110,7 @@
- 
- # 15
- def apply_dynamic_tax(net: float, country: str) -> float:
--    rate = 0.21 if country.upper() == "LV" else 0.20
-+    rate = 0.21 if country.upper() != "LV" else 0.20
-     return _round(net * (1 + rate))
- 
- # 16
-</pre><h3>Mutant 90</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -110,7 +110,7 @@
- 
- # 15
- def apply_dynamic_tax(net: float, country: str) -> float:
--    rate = 0.21 if country.upper() == "LV" else 0.20
-+    rate = 0.21 if country.upper() == "XXLVXX" else 0.20
-     return _round(net * (1 + rate))
- 
- # 16
-</pre><h3>Mutant 91</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -110,7 +110,7 @@
- 
- # 15
- def apply_dynamic_tax(net: float, country: str) -> float:
--    rate = 0.21 if country.upper() == "LV" else 0.20
-+    rate = 0.21 if country.upper() == "LV" else 1.2
-     return _round(net * (1 + rate))
- 
- # 16
-</pre><h3>Mutant 92</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -110,7 +110,7 @@
- 
- # 15
- def apply_dynamic_tax(net: float, country: str) -> float:
--    rate = 0.21 if country.upper() == "LV" else 0.20
-+    rate = None
-     return _round(net * (1 + rate))
- 
- # 16
-</pre><h3>Mutant 93</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -111,7 +111,7 @@
- # 15
- def apply_dynamic_tax(net: float, country: str) -> float:
-     rate = 0.21 if country.upper() == "LV" else 0.20
--    return _round(net * (1 + rate))
-+    return _round(net / (1 + rate))
- 
- # 16
- def loyalty_points_earned(net: float) -> int:
-</pre><h3>Mutant 94</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -111,7 +111,7 @@
- # 15
- def apply_dynamic_tax(net: float, country: str) -> float:
-     rate = 0.21 if country.upper() == "LV" else 0.20
--    return _round(net * (1 + rate))
-+    return _round(net * (2 + rate))
- 
- # 16
- def loyalty_points_earned(net: float) -> int:
-</pre><h3>Mutant 95</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -111,7 +111,7 @@
- # 15
- def apply_dynamic_tax(net: float, country: str) -> float:
-     rate = 0.21 if country.upper() == "LV" else 0.20
--    return _round(net * (1 + rate))
-+    return _round(net * (1 - rate))
- 
- # 16
- def loyalty_points_earned(net: float) -> int:
-</pre><h3>Mutant 96</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -115,7 +115,7 @@
- 
- # 16
- def loyalty_points_earned(net: float) -> int:
--    return int(net * LOYALTY_POINT_RATE)
-+    return int(net / LOYALTY_POINT_RATE)
- 
- # 17
- def apply_loyalty_discount(gross: float, points: int) -> float:
-</pre><h3>Mutant 97</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -119,7 +119,7 @@
- 
- # 17
- def apply_loyalty_discount(gross: float, points: int) -> float:
--    discount = _round(points * 0.01)  # every point = 1 cent
-+    discount = _round(points / 0.01)  # every point = 1 cent
-     return max(0.0, _round(gross - discount))
- 
- # 18
-</pre><h3>Mutant 98</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -119,7 +119,7 @@
- 
- # 17
- def apply_loyalty_discount(gross: float, points: int) -> float:
--    discount = _round(points * 0.01)  # every point = 1 cent
-+    discount = _round(points * 1.01)  # every point = 1 cent
-     return max(0.0, _round(gross - discount))
- 
- # 18
-</pre><h3>Mutant 99</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -119,7 +119,7 @@
- 
- # 17
- def apply_loyalty_discount(gross: float, points: int) -> float:
--    discount = _round(points * 0.01)  # every point = 1 cent
-+    discount = None  # every point = 1 cent
-     return max(0.0, _round(gross - discount))
- 
- # 18
-</pre><h3>Mutant 100</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -120,7 +120,7 @@
- # 17
- def apply_loyalty_discount(gross: float, points: int) -> float:
-     discount = _round(points * 0.01)  # every point = 1 cent
--    return max(0.0, _round(gross - discount))
-+    return max(1.0, _round(gross - discount))
- 
- # 18
- def cap_price(price: float, cap: float) -> float:
-</pre><h3>Mutant 101</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -120,7 +120,7 @@
- # 17
- def apply_loyalty_discount(gross: float, points: int) -> float:
-     discount = _round(points * 0.01)  # every point = 1 cent
--    return max(0.0, _round(gross - discount))
-+    return max(0.0, _round(gross + discount))
- 
- # 18
- def cap_price(price: float, cap: float) -> float:
-</pre><h3>Mutant 102</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -127,7 +127,7 @@
-     return min(price, cap)
- 
- # 19
--def round_money(value: float, decimals: int = 2) -> float:
-+def round_money(value: float, decimals: int = 3) -> float:
-     return float(Decimal(str(value)).quantize(Decimal((0, (1,), -decimals)), rounding=ROUND_HALF_UP))
- 
- # 20
 </pre><h3>Mutant 103</h3><pre>--- billing/calculator.py
 +++ billing/calculator.py
-@@ -128,7 +128,7 @@
- 
- # 19
- def round_money(value: float, decimals: int = 2) -> float:
+@@ -136,7 +136,7 @@
+         raise TypeError("decimals must be int")
+     if not isinstance(value, float):
+         raise TypeError("decimals must be int")
 -    return float(Decimal(str(value)).quantize(Decimal((0, (1,), -decimals)), rounding=ROUND_HALF_UP))
 +    return float(Decimal(str(value)).quantize(Decimal((1, (1,), -decimals)), rounding=ROUND_HALF_UP))
  
@@ -884,60 +88,60 @@
  def is_weekend_rate(date: datetime) -> bool:
 </pre><h3>Mutant 104</h3><pre>--- billing/calculator.py
 +++ billing/calculator.py
-@@ -128,7 +128,7 @@
- 
- # 19
- def round_money(value: float, decimals: int = 2) -> float:
+@@ -136,7 +136,7 @@
+         raise TypeError("decimals must be int")
+     if not isinstance(value, float):
+         raise TypeError("decimals must be int")
 -    return float(Decimal(str(value)).quantize(Decimal((0, (1,), -decimals)), rounding=ROUND_HALF_UP))
 +    return float(Decimal(str(value)).quantize(Decimal((0, (2,), -decimals)), rounding=ROUND_HALF_UP))
  
  # 20
  def is_weekend_rate(date: datetime) -> bool:
-</pre><h3>Mutant 105</h3><pre>--- billing/calculator.py
+</pre><h3>Mutant 109</h3><pre>--- billing/calculator.py
 +++ billing/calculator.py
-@@ -128,7 +128,7 @@
+@@ -46,7 +46,7 @@
+ # 4
+ def booking_fee(qty: int) -> float:
+     if qty <= 0:
+-        raise ValueError("qty must be positive")
++        raise ValueError("XXqty must be positiveXX")
+     return _round(BOOKING_FEE_PER_TICKET * qty)
  
+ # 5
+</pre><h3>Mutant 112</h3><pre>--- billing/calculator.py
++++ billing/calculator.py
+@@ -75,7 +75,7 @@
+     if rate is None:
+         raise KeyError(f"Unsupported currency {to}")
+     if amount_eur < 0:
+-        raise ValueError("amount must be non-negative")
++        raise ValueError("XXamount must be non-negativeXX")
+     return _round(amount_eur / rate)
+ 
+ # 9
+</pre><h3>Mutant 114</h3><pre>--- billing/calculator.py
++++ billing/calculator.py
+@@ -133,7 +133,7 @@
  # 19
  def round_money(value: float, decimals: int = 2) -> float:
--    return float(Decimal(str(value)).quantize(Decimal((0, (1,), -decimals)), rounding=ROUND_HALF_UP))
-+    return float(Decimal(str(value)).quantize(Decimal((0, (1,), +decimals)), rounding=ROUND_HALF_UP))
+     if not isinstance(decimals, int):
+-        raise TypeError("decimals must be int")
++        raise TypeError("XXdecimals must be intXX")
+     if not isinstance(value, float):
+         raise TypeError("decimals must be int")
+     return float(Decimal(str(value)).quantize(Decimal((0, (1,), -decimals)), rounding=ROUND_HALF_UP))
+</pre><h3>Mutant 116</h3><pre>--- billing/calculator.py
++++ billing/calculator.py
+@@ -135,7 +135,7 @@
+     if not isinstance(decimals, int):
+         raise TypeError("decimals must be int")
+     if not isinstance(value, float):
+-        raise TypeError("decimals must be int")
++        raise TypeError("XXdecimals must be intXX")
+     return float(Decimal(str(value)).quantize(Decimal((0, (1,), -decimals)), rounding=ROUND_HALF_UP))
  
  # 20
- def is_weekend_rate(date: datetime) -> bool:
-</pre><h3>Mutant 106</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -132,5 +132,5 @@
- 
- # 20
- def is_weekend_rate(date: datetime) -> bool:
--    return date.weekday() >= 5
-+    return date.weekday() > 5
- 
-</pre><h3>Mutant 107</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -132,5 +132,5 @@
- 
- # 20
- def is_weekend_rate(date: datetime) -> bool:
--    return date.weekday() >= 5
-+    return date.weekday() >= 6
- 
-</pre><h2>Suspicious</h2>Mutants that made the test suite take longer, but otherwise seemed ok<h3>Mutant 20</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -17,11 +17,7 @@
-     "GBP": 1.15,
- }
- 
--COUPON_CODES: Dict[str, float] = {
--    "SPORT10": 0.10,
--    "NEWUSER5": 0.05,
--    "BLACKFRIDAY": 0.25,
--}
-+COUPON_CODES: Dict[str, float] = None
- 
- def _round(value: float) -> float:
-     return float(Decimal(str(value)).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP))
-</pre><h3>Mutant 21</h3><pre>--- billing/calculator.py
+</pre><h2>Suspicious</h2>Mutants that made the test suite take longer, but otherwise seemed ok<h3>Mutant 21</h3><pre>--- billing/calculator.py
 +++ billing/calculator.py
 @@ -24,7 +24,7 @@
  }
@@ -948,48 +152,26 @@
  
  # 1
  def price_with_tax(net: float) -> float:
-</pre><h3>Mutant 26</h3><pre>--- billing/calculator.py
+</pre><h3>Mutant 113</h3><pre>--- billing/calculator.py
 +++ billing/calculator.py
-@@ -30,7 +30,7 @@
- def price_with_tax(net: float) -> float:
-     if net < 0:
-         raise ValueError("net must be non‑negative")
--    return _round(net * (1 + TAX_RATE))
-+    return _round(net * (2 + TAX_RATE))
+@@ -132,7 +132,7 @@
  
- # 2
- def apply_coupon(gross: float, coupon: str | None = None) -> float:
-</pre><h3>Mutant 29</h3><pre>--- billing/calculator.py
+ # 19
+ def round_money(value: float, decimals: int = 2) -> float:
+-    if not isinstance(decimals, int):
++    if  isinstance(decimals, int):
+         raise TypeError("decimals must be int")
+     if not isinstance(value, float):
+         raise TypeError("decimals must be int")
+</pre><h3>Mutant 115</h3><pre>--- billing/calculator.py
 +++ billing/calculator.py
-@@ -34,7 +34,7 @@
- 
- # 2
- def apply_coupon(gross: float, coupon: str | None = None) -> float:
--    disc = COUPON_CODES.get(coupon.upper() if coupon else "", 0.0)
-+    disc = COUPON_CODES.get(coupon.upper() if coupon else "", 1.0)
-     return _round(gross * (1 - disc))
- 
- # 3
-</pre><h3>Mutant 32</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -35,7 +35,7 @@
- # 2
- def apply_coupon(gross: float, coupon: str | None = None) -> float:
-     disc = COUPON_CODES.get(coupon.upper() if coupon else "", 0.0)
--    return _round(gross * (1 - disc))
-+    return _round(gross * (2 - disc))
- 
- # 3
- def compute_subtotal(unit_price: float, qty: int) -> float:
-</pre><h3>Mutant 34</h3><pre>--- billing/calculator.py
-+++ billing/calculator.py
-@@ -39,7 +39,7 @@
- 
- # 3
- def compute_subtotal(unit_price: float, qty: int) -> float:
--    if qty <= 0:
-+    if qty < 0:
-         raise ValueError("qty must be positive")
-     return _round(unit_price * qty)
+@@ -134,7 +134,7 @@
+ def round_money(value: float, decimals: int = 2) -> float:
+     if not isinstance(decimals, int):
+         raise TypeError("decimals must be int")
+-    if not isinstance(value, float):
++    if  isinstance(value, float):
+         raise TypeError("decimals must be int")
+     return float(Decimal(str(value)).quantize(Decimal((0, (1,), -decimals)), rounding=ROUND_HALF_UP))
  
 </pre></body></html>

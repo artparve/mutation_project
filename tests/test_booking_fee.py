@@ -28,7 +28,7 @@ class TestBookingFee:
         with pytest.raises(ValueError) as exc_info:
             booking_fee(invalid_qty)
         
-        assert "qty must be positive" in str(exc_info.value)
+        assert "qty must be positive" == str(exc_info.value)
 
     @pytest.mark.parametrize("invalid_type", ["5", None, [2]])
     def test_invalid_qty_type(self, invalid_type):
